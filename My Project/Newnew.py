@@ -1,4 +1,9 @@
+#!python3
+
 import tkinter as tk
+import os
+from my_icon import icondata
+from bcgr import bcgrdata
 
 
 buttonState = 0
@@ -35,8 +40,8 @@ def buttonPress():
     global buttonState
     global bg1
     global bg2
-    
-    if buttonState == 0: 
+
+    if buttonState == 0:
 
         var1 = val_part1.get().replace(',', '.')
         var2 = val_part2.get().replace(',', '.')
@@ -44,7 +49,7 @@ def buttonPress():
         var4 = val_cont1.get().replace(',', '.')
         var5 = val_cont2.get().replace(',', '.')
         var6 = val_cont3.get().replace(',', '.')
-        
+
         if var1== "":
             try:
                 a1 = (float(var3)*float(var6)-float(var2)*float(var5))/float(var4)
@@ -133,8 +138,8 @@ def buttonPress():
                     except:
                         val_cont3.set("WRONG")
                         container3.config(bg=bg1)
-                    
-                
+
+
         btntxt.set("RESET")
         buttonState = 1
         button.config(bg=bg1)
@@ -156,8 +161,8 @@ def buttonPress():
         container1.config(bg=bg0)
         container2.config(bg=bg0)
         container3.config(bg=bg0)
-        
-    
+
+
 
 #refferences the main window
 root = tk.Tk()
@@ -166,14 +171,17 @@ root.resizable(width=False, height=False)
 
 
 #changes the left icon
-root.iconbitmap(resource_path("my_icon.ico"))
+#~ root.iconbitmap(resource_path("my_icon.ico"))
+icon = tk.PhotoImage(data=icondata)
+root.tk.call('wm', 'iconphoto', root._w, icon)
 
 #changes the window Title
 root.title("Dilution Calculator")
 
 
 #background
-background_image = tk.PhotoImage(file=resource_path("bcgr.png"))
+#~ background_image = tk.PhotoImage(file=resource_path("bcgr.png"))
+background_image = tk.PhotoImage(data=bcgrdata)
 background_label = tk.Label(root, image=background_image)
 background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
