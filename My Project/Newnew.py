@@ -7,11 +7,18 @@ bg1 = "light salmon"
 bg2 = "spring green"
 
 #####SHIT############
-def resource_path(relative_path):
-    if hasattr(sys, '_MEIPASS'):
-        return os.path.join(sys._MEIPASS, relative_path)
-    return os.path.join(os.path.abspath("."), relative_path)
+#def resource_path(relative_path):
+#    if hasattr(sys, '_MEIPASS'):
+#        return os.path.join(sys._MEIPASS, relative_path)
+#    return os.path.join(os.path.abspath("."), relative_path)
 
+def resource_path(relative_path):
+
+    try:
+        base_path = os.path.join(sys._MEIPASS, 'data')
+    except Exception:
+        base_path = 'C:\\Users\\test\\Downloads\\TripApp'
+    return os.path.join(base_path, relative_path)
 
 ##########################
 

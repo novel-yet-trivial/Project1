@@ -2,11 +2,16 @@
 
 block_cipher = None
 
+added_files = [
+         ( "bcgr.png", '.'), 
+         ( "my_icon.ico", '.'),                            
+         ]
+
 
 a = Analysis(['Newnew.py'],
              pathex=['D:\\My Project'],
              binaries=[],
-             datas=[("D:\My Project\bcgr.png", 'data'), ("D:\My Project\my_icon.ico", 'data')],
+             datas=added_files,
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
